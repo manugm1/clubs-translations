@@ -10,5 +10,5 @@ class Language extends Model
     public $timestamps = false;
 
     //Campos que le pertenecen (id va implícito)
-    protected $fillable = ['nombre', 'locale'];
+    protected $fillable = ['name', 'locale'];
 }

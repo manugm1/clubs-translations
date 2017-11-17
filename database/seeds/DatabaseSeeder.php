@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Database\Eloquent\Model;
+
 
 class DatabaseSeeder extends Seeder
 {
@@ -11,6 +13,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
+        //Ordenadas correctamente para no tener problemas con las relaciones
+        Model::unguard();
+        factory('App\User', 5)->create();
+        factory('App\Club', 10)->create();
+        factory('App\Language', 10)->create();
+        factory('App\ClubTranslation', 10)->create();
+        Model::reguard();
     }
 }

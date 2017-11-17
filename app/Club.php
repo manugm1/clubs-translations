@@ -10,7 +10,7 @@ class Club extends Model
     public $timestamps = false;
 
     //Campos que le pertenecen (id va implícito)
-    protected $fillable = ['nombre', 'manager'];
+    protected $fillable = ['name', 'manager'];
 
     public function translation($language = null){
         //Si no nos llega idioma, cogemos el por defecto del sistema (en)
