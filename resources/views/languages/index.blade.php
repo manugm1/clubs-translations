@@ -98,7 +98,7 @@
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cerrar</button>
-                                                <a class="btn btn-small btn-danger" onclick="return borrar('{{URL::to('lamguages/'.$valor->id)}}')">Eliminar</a>
+                                                <a class="btn btn-small btn-danger" onclick="return borrar('{{URL::to('languages/'.$valor->id)}}')">Eliminar</a>
                                             </div>
                                         </div>
                                         <!-- /.modal-content -->

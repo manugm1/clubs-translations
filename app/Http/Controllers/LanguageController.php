@@ -134,6 +134,10 @@ class LanguageController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $objeto = Language::find($id);
+        
+        $objeto->delete();
+        
+        Session::flash('message', 'Idioma borrado correctamente');
     }
 }
