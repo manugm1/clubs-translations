@@ -28,7 +28,7 @@ class LanguageController extends Controller
      */
     public function create()
     {
-        //
+        return view('languages.create');
     }
 
     /**
@@ -39,7 +39,29 @@ class LanguageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //Validación
+        $reglas = array(
+            'name' => 'required|string',
+            'locale' => 'required|string',
+        );
+
+        $validator = Validator::make(Input::all(), $reglas);
+
+        //Comprobamos reglas
+        if ($validator->fails()) { //Si falla
+            Session::flash('message', "Hay algún error en los datos introducidos.");
+            return view('languages.create')->with("errors", $validator->errors());
+        } else {
+            // Si no, guardamos el objeto en la base de datos
+            $objeto = new Language();
+            $objeto->name = Input::post('name');
+            $objeto->locale = Input::post('locale');
+            $objeto->save();
+
+            //Redireccionamos a vista listado
+            Session::flash('message', 'Idioma creado correctamente');
+            return Redirect::to('languages');
+        }
     }
 
     /**

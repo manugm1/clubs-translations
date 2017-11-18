@@ -11,7 +11,7 @@
 <!-- Content Header (Page header) -->
 <section class="content-header">
     <h1>
-    Clubs
+    Idiomas
     <small>Crear un idioma</small>
     </h1>
     <ol class="breadcrumb">
@@ -37,7 +37,7 @@
             @endif
                 <div class="box box-success">
                     <div class="box-header">
-                        <h3 class="box-title">Crear club</h3>
+                        <h3 class="box-title">Crear Idioma</h3>
                     </div><!-- /.box-header -->
                     <!-- form start -->
                     {!! Form::open(['route' => 'languages.index', 'method' => 'POST', 'class' => 'form-horizontal']) !!}
