@@ -54,8 +54,8 @@ class ClubController extends Controller
         } else {
             // Si no, guardamos el objeto en la base de datos
             $objeto = new Club();
-            $objeto->name = Input::get('name');
-            $objeto->manager = Input::get('manager');
+            $objeto->name = Input::post('name');
+            $objeto->manager = Input::post('manager');
             $objeto->save();
 
             //Redireccionamos a vista listado
@@ -72,7 +72,7 @@ class ClubController extends Controller
      */
     public function show($id)
     {
-        //
+        //No es necesario
     }
 
     /**
@@ -83,7 +83,9 @@ class ClubController extends Controller
      */
     public function edit($id)
     {
-        //
+        //Objeto correspondiente
+        $club = Club::find($id);
+        return view('clubs.edit')->with('club', $club);
     }
 
     /**
@@ -95,7 +97,33 @@ class ClubController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //Validación
+        $reglas = array(
+            'name' => 'required|string',
+            'manager' => 'required|string',
+        );
+
+        $validator = Validator::make(Input::all(), $reglas);
+
+        //Obtenemos objeto
+        $objeto = Club::find($id);
+
+        //Comprobamos reglas
+        if ($validator->fails()) { //Si falla
+            Session::flash('message', "Hay algún error en los datos introducidos.");
+            return redirect()->route('clubs.edit', ['id' => $objeto->id])->withErrors($validator)
+                ->withInput();
+        } else {
+            
+            // Si no, guardamos el objeto en la base de datos
+            $objeto->name = Input::post('name');
+            $objeto->manager = Input::post('manager');
+            $objeto->save();
+
+            //Redireccionamos a vista listado
+            Session::flash('message', 'Club editado correctamente');
+            return Redirect::to('clubs');
+        }
     }
 
     /**

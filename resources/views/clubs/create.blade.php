@@ -1,6 +1,6 @@
 @extends('master')
 
-@section('pagetitle', 'Ver todos los clubs')
+@section('pagetitle', 'Crear un club')
 
 @section('headercontent')
 <style>
@@ -40,7 +40,7 @@
                         <h3 class="box-title">Crear club</h3>
                     </div><!-- /.box-header -->
                     <!-- form start -->
-                    {!! Form::open(['url' => 'clubs', 'class' => 'form-horizontal']) !!}
+                    {!! Form::open(['route' => 'clubs.index', 'method' => 'POST', 'class' => 'form-horizontal']) !!}
                     <div class="box-body">
                         <div class="form-group">
                             <label for="titulo" class="col-sm-3 control-label">Nombre</label>
