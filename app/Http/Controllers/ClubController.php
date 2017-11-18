@@ -134,6 +134,10 @@ class ClubController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $objeto = Club::find($id);
+        
+        $objeto->delete();
+        
+        Session::flash('message', 'Club borrado correctamente');
     }
 }

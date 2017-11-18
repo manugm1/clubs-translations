@@ -7,6 +7,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
   <title>Prueba @section('pagetitle') Portada @show</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
@@ -26,6 +27,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Google Font -->
   <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
+@yield('extracode')
 </head>
 
 <body class="hold-transition skin-green sidebar-mini">
@@ -118,7 +121,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <footer class="main-footer">
     <!-- To the right -->
     <div class="pull-right hidden-xs">
-      Prueba Laravel 5.5(PHP7) + Bootstrap
+      Prueba Laravel 5.5 (PHP7) + Bootstrap
     </div>
     <!-- Default to the left -->
     <strong>Prueba - <?=date('Y')?></strong>
