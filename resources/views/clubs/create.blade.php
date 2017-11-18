@@ -56,7 +56,7 @@
                         </div>
                     </div><!-- /.box-body -->
                     <div class="box-footer">
-                        <button type="reset" class="btn btn-default">Reset</button>
+                        <button type="reset" class="btn btn-default pull-left">Reset</button>
                         <button type="submit" class="btn btn-success pull-right">Crear</button>
                     </div><!-- /.box-footer -->
                     {!! Form::close() !!}
@@ -65,15 +65,9 @@
         </div><!-- /.row -->
         <!-- Main row -->
         <div class="row">
-
-            <!-- right col (We are only adding the ID to make the widgets sortable)-->
-            <section class="col-lg-5 connectedSortable">
-
-
-
-
+            <section class="col-lg-1 col-lg-offset-5">
+                <a class="btn btn-small btn-default" href="{{ URL::to('clubs') }}">Volver</a>
             </section><!-- right col -->
         </div><!-- /.row (main row) -->
-
     </section><!-- /.content -->
     @stop

@@ -55,6 +55,11 @@
                     </ul>
                 </div>
                 @endif
+                <div class="row">
+                    <section class="col-lg-5">
+                        <a style="margin-bottom: 10px;" class="btn btn-small btn-success" href="{{ URL::to('clubs/create') }}">Crear</a>
+                    </section><!-- right col -->
+                </div><!-- /.row (main row) -->
                 <div class="box">
                     <div class="box-header">
                         <h3 class="box-title">Clubs</h3>
@@ -76,8 +81,8 @@
                                     <td>{{ $valor->name }}</td>
                                     <td>{{ $valor->manager }}</td>
                                     <td>
-                                    <a class="btn btn-small btn-success" href="{{ URL::to('clubs/' . $valor->id . '/edit') }}">Editar</a>
-                                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modal-default-{{$valor->id}}">Eliminar</button>
+                                    <a class="btn btn-small btn-warning" href="{{ URL::to('clubs/' . $valor->id . '/edit') }}">Editar</a>
+                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-default-{{$valor->id}}">Eliminar</button>
                                     </td>
                                 </tr>
                                 <div class="modal fade" id="modal-default-{{$valor->id}}" style="display: none;">
@@ -86,14 +91,14 @@
                                             <div class="modal-header">
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">×</span></button>
-                                                <h4 class="modal-title">Eliminar</h4>
+                                                <h4 class="modal-title">Eliminar club</h4>
                                             </div>
                                             <div class="modal-body">
-                                                <p>¿Está seguro de querer borrar el elemento?</p>
+                                                <p>¿Está seguro de querer borrar el club <strong>{{$valor->id."-".$valor->name}}</strong>?</p>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cerrar</button>
-                                                <a class="btn btn-small btn-warning" onclick="return borrar('{{URL::to('clubs/'.$valor->id)}}')">Eliminar</a>
+                                                <a class="btn btn-small btn-danger" onclick="return borrar('{{URL::to('clubs/'.$valor->id)}}')">Eliminar</a>
                                             </div>
                                         </div>
                                         <!-- /.modal-content -->

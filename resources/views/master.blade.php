@@ -8,7 +8,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="csrf-token" content="{{ csrf_token() }}">
-  <title>Prueba @section('pagetitle') Portada @show</title>
+  <title>Prueba | @section('pagetitle') Portada @show</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   {!! Html::style('assets/bower_components/bootstrap/dist/css/bootstrap.min.css') !!}
@@ -38,7 +38,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <header class="main-header">
 
     <!-- Logo -->
-    <a href="#" class="logo">
+    <a href="{{ URL::to('/') }}" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>P</b>RB</span>
       <!-- logo for regular state and mobile devices -->
