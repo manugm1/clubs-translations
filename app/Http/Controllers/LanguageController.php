@@ -2,14 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Input;
 
-use Redirect, Session;
-use App\Club;
-
-class ClubController extends Controller
+class LanguageController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,7 +13,7 @@ class ClubController extends Controller
      */
     public function index()
     {
-        return view('clubs.index')->with('var', Club::all());
+        //
     }
 
     /**
@@ -28,7 +23,7 @@ class ClubController extends Controller
      */
     public function create()
     {
-        return view('clubs.create');
+        //
     }
 
     /**
@@ -39,29 +34,7 @@ class ClubController extends Controller
      */
     public function store(Request $request)
     {
-        //Validación
-        $reglas = array(
-            'name' => 'required|string',
-            'manager' => 'required|string',
-        );
-
-        $validator = Validator::make(Input::all(), $reglas);
-
-        //Comprobamos reglas
-        if ($validator->fails()) { //Si falla
-            Session::flash('message', "Hay algún error en los datos introducidos.");
-            return view('clubs.create')->with("errors", $validator->errors());
-        } else {
-            // Si no, guardamos el objeto en la base de datos
-            $objeto = new Club();
-            $objeto->name = Input::get('name');
-            $objeto->manager = Input::get('manager');
-            $objeto->save();
-
-            //Redireccionamos a vista listado
-            Session::flash('message', 'Club creado correctamente');
-            return Redirect::to('clubs');
-        }
+        //
     }
 
     /**

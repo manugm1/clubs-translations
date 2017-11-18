@@ -26,6 +26,13 @@
         <!-- Small boxes (Stat box) -->
         <div class="row">
             <div class="col-xs-12">
+                @if (Session::has('message'))
+                <div class="callout callout-success">
+                    <ul>
+                    {{ Session::get('message') }}
+                    </ul>
+                </div>
+                @endif
                 <div class="box">
                     <div class="box-header">
                         <h3 class="box-title">Clubs</h3>
@@ -47,8 +54,8 @@
                                     <td>{{ $valor->name }}</td>
                                     <td>{{ $valor->manager }}</td>
                                     <td>
-                                        <a href="https://adminlte.io">Editar</a>
-                                        <a href="https://adminlte.io">Eliminar</a>
+                                        <a href="#">Editar</a>
+                                        <a href="#">Eliminar</a>
                                     </td>
                                 </tr>
                             @endforeach
