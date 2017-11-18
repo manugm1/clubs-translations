@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
+
+use Redirect, Session;
+use App\Language;
 
 class LanguageController extends Controller
 {
@@ -13,7 +18,7 @@ class LanguageController extends Controller
      */
     public function index()
     {
-        //
+         return view('languages.index')->with('var', Language::all());
     }
 
     /**

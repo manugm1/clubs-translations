@@ -11,7 +11,7 @@
         <li>
           <a href="{{ URL::to('clubs') }}"><i class="fa fa-link"></i><span>Clubs</span></a>
         </li>
-        <li class="treeview">
+        <li>
           <a href="{{ URL::to('languages') }}"><i class="fa fa-link"></i> <span>Idiomas</span></a>
         </li>
       </ul>
