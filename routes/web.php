@@ -14,3 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+//Rutas de la web interna
+Route::resource('clubs', 'ClubController');
+Route::resource('languages', 'LanguageController');
