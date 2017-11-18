@@ -38,7 +38,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <header class="main-header">
 
     <!-- Logo -->
-    <a href="{{ URL::to('/') }}" class="logo">
+    <a href="{{ URL::to('private/') }}" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>P</b>RB</span>
       <!-- logo for regular state and mobile devices -->
@@ -85,7 +85,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     </nav>
   </header>
   
-  @include('menu')
+  @include('private.menu')
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">

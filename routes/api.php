@@ -16,3 +16,14 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('pruebas', function(){
+    //$club = App\Club::find(25);
+    //$club->name = "Barcelona";
+    //$club->manager = "Guardiola";
+    //$club->save();
+    //$club->translation('en')->first()->description = "El Real Madrid CF.";
+    //$club->translation('en')->first()->descripcion = "";
+    //$club->translation()->first()->update([]);
+    //return $club;
+});

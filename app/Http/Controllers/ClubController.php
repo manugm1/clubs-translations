@@ -18,7 +18,7 @@ class ClubController extends Controller
      */
     public function index()
     {
-        return view('clubs.index')->with('var', Club::all());
+        return view('private.clubs.index')->with('var', Club::all());
     }
 
     /**
@@ -28,7 +28,7 @@ class ClubController extends Controller
      */
     public function create()
     {
-        return view('clubs.create');
+        return view('private.clubs.create');
     }
 
     /**
@@ -50,7 +50,7 @@ class ClubController extends Controller
         //Comprobamos reglas
         if ($validator->fails()) { //Si falla
             Session::flash('message', "Hay algún error en los datos introducidos.");
-            return view('clubs.create')->with("errors", $validator->errors());
+            return view('private.clubs.create')->with("errors", $validator->errors());
         } else {
             // Si no, guardamos el objeto en la base de datos
             $objeto = new Club();
@@ -60,7 +60,7 @@ class ClubController extends Controller
 
             //Redireccionamos a vista listado
             Session::flash('message', 'Club creado correctamente');
-            return Redirect::to('clubs');
+            return Redirect::to('private/clubs');
         }
     }
 
@@ -85,7 +85,7 @@ class ClubController extends Controller
     {
         //Objeto correspondiente
         $club = Club::find($id);
-        return view('clubs.edit')->with('club', $club);
+        return view('private.clubs.edit')->with('club', $club);
     }
 
     /**
@@ -122,7 +122,7 @@ class ClubController extends Controller
 
             //Redireccionamos a vista listado
             Session::flash('message', 'Club editado correctamente');
-            return Redirect::to('clubs');
+            return Redirect::to('private/clubs');
         }
     }
 

@@ -1,4 +1,4 @@
-@extends('master')
+@extends('private.master')
 
  @section('extracode')
  <script type="text/javascript">
@@ -22,7 +22,7 @@
     </script>
  @stop
 
-@section('pagetitle', 'Ver todos los clubs')
+@section('pagetitle', 'Ver todos los idiomas')
 
 @section('headercontent')
 <style>
@@ -33,12 +33,12 @@
 <!-- Content Header (Page header) -->
 <section class="content-header">
     <h1>
-    Clubs
-    <small>Todos los clubs</small>
+    Idiomas
+    <small>Todos los idiomas</small>
     </h1>
     <ol class="breadcrumb">
     <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
-    <li class="active">Todos los clubs</li>
+    <li class="active">Todos los idiomas</li>
     </ol>
 </section>
 @stop
@@ -57,20 +57,20 @@
                 @endif
                 <div class="row">
                     <section class="col-lg-5">
-                        <a style="margin-bottom: 10px;" class="btn btn-small btn-success" href="{{ URL::to('clubs/create') }}">Crear</a>
+                        <a style="margin-bottom: 10px;" class="btn btn-small btn-success" href="{{ URL::to('private/languages/create') }}">Crear</a>
                     </section><!-- right col -->
                 </div><!-- /.row (main row) -->
                 <div class="box">
                     <div class="box-header">
-                        <h3 class="box-title">Clubs</h3>
+                        <h3 class="box-title">Idiomas</h3>
                     </div><!-- /.box-header -->
                     <div class="box-body">
                         <table id="tabla" class="table table-bordered table-striped">
                             <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>Club</th>
-                                <th>Manager</th>
+                                <th>Nombre</th>
+                                <th>Locale</th>
                                 <th>Edición</th>
                             </tr>
                             </thead>
@@ -79,9 +79,9 @@
                                 <tr>
                                     <td>{{ $valor->id }}</td>
                                     <td>{{ $valor->name }}</td>
-                                    <td>{{ $valor->manager }}</td>
+                                    <td>{{ $valor->locale }}</td>
                                     <td>
-                                    <a class="btn btn-small btn-warning" href="{{ URL::to('clubs/' . $valor->id . '/edit') }}">Editar</a>
+                                    <a class="btn btn-small btn-warning" href="{{ URL::to('private/languages/' . $valor->id . '/edit') }}">Editar</a>
                                     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-default-{{$valor->id}}">Eliminar</button>
                                     </td>
                                 </tr>
@@ -91,14 +91,14 @@
                                             <div class="modal-header">
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">×</span></button>
-                                                <h4 class="modal-title">Eliminar club</h4>
+                                                <h4 class="modal-title">Eliminar idioma</h4>
                                             </div>
                                             <div class="modal-body">
-                                                <p>¿Está seguro de querer borrar el club <strong>{{$valor->id."-".$valor->name}}</strong>?</p>
+                                                <p>¿Está seguro de querer borrar el idioma <strong>{{$valor->id."-".$valor->name}}</strong>?</p>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cerrar</button>
-                                                <a class="btn btn-small btn-danger" onclick="return borrar('{{URL::to('clubs/'.$valor->id)}}')">Eliminar</a>
+                                                <a class="btn btn-small btn-danger" onclick="return borrar('{{URL::to('private/languages/'.$valor->id)}}')">Eliminar</a>
                                             </div>
                                         </div>
                                         <!-- /.modal-content -->
@@ -110,8 +110,8 @@
                             <tfoot>
                             <tr>
                                 <th>ID</th>
-                                <th>Club</th>
-                                <th>Manager</th>
+                                <th>Nombre</th>
+                                <th>Locale</th>
                                 <th>Edición</th>
                             </tr>
                             </tfoot>

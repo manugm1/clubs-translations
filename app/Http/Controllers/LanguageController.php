@@ -18,7 +18,7 @@ class LanguageController extends Controller
      */
     public function index()
     {
-         return view('languages.index')->with('var', Language::all());
+         return view('private.languages.index')->with('var', Language::all());
     }
 
     /**
@@ -28,7 +28,7 @@ class LanguageController extends Controller
      */
     public function create()
     {
-        return view('languages.create');
+        return view('private.languages.create');
     }
 
     /**
@@ -50,7 +50,7 @@ class LanguageController extends Controller
         //Comprobamos reglas
         if ($validator->fails()) { //Si falla
             Session::flash('message', "Hay algún error en los datos introducidos.");
-            return view('languages.create')->with("errors", $validator->errors());
+            return view('private.languages.create')->with("errors", $validator->errors());
         } else {
             // Si no, guardamos el objeto en la base de datos
             $objeto = new Language();
@@ -60,7 +60,7 @@ class LanguageController extends Controller
 
             //Redireccionamos a vista listado
             Session::flash('message', 'Idioma creado correctamente');
-            return Redirect::to('languages');
+            return Redirect::to('private/languages');
         }
     }
 
@@ -85,7 +85,7 @@ class LanguageController extends Controller
     {
         //Objeto correspondiente
         $language = Language::find($id);
-        return view('languages.edit')->with('var', $language);
+        return view('private.languages.edit')->with('var', $language);
     }
 
     /**
@@ -122,7 +122,7 @@ class LanguageController extends Controller
 
             //Redireccionamos a vista listado
             Session::flash('message', 'Idioma editado correctamente');
-            return Redirect::to('languages');
+            return Redirect::to('private/languages');
         }
     }
 

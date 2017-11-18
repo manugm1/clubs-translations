@@ -1,6 +1,6 @@
-@extends('master')
+@extends('private.master')
 
-@section('pagetitle', 'Editar Idioma {{$var->id}}')
+@section('pagetitle', 'Crear un idioma')
 
 @section('headercontent')
 <style>
@@ -12,11 +12,11 @@
 <section class="content-header">
     <h1>
     Idiomas
-    <small>Editar un idioma</small>
+    <small>Crear un idioma</small>
     </h1>
     <ol class="breadcrumb">
     <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
-    <li class="active">Editar un idioma</li>
+    <li class="active">Crear un idioma</li>
     </ol>
 </section>
 @stop
@@ -37,33 +37,27 @@
             @endif
                 <div class="box box-success">
                     <div class="box-header">
-                        <h3 class="box-title">Editar idioma <strong>{{$var->name}}</strong></h3>
+                        <h3 class="box-title">Crear Idioma</h3>
                     </div><!-- /.box-header -->
                     <!-- form start -->
-                    {!! Form::open(['route' => ['languages.update', $var->id], 'method' => 'PUT', 'class' => 'form-horizontal']) !!}
+                    {!! Form::open(['route' => 'languages.index', 'method' => 'POST', 'class' => 'form-horizontal']) !!}
                     <div class="box-body">
-                        <div class="form-group">
-                            <label for="titulo" class="col-sm-3 control-label">ID</label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control" disabled="disabled" name="id" id="id" placeholder="ID" value="{{$var->id}}">
-                            </div>
-                        </div>
                         <div class="form-group">
                             <label for="titulo" class="col-sm-3 control-label">Nombre</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" name="name" id="name" placeholder="Nombre" value="{{$var->name}}">
+                                <input type="text" class="form-control" name="name" id="name" placeholder="Nombre">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="autor" class="col-sm-3 control-label">Locale</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" name="locale" id="locale" placeholder="Locale" value="{{$var->locale}}">
+                                <input type="text" class="form-control" name="locale" id="locale" placeholder="Locale">
                             </div>
                         </div>
                     </div><!-- /.box-body -->
                     <div class="box-footer">
-                        <button type="reset" class="btn btn-default">Reset</button>
-                        <button type="submit" class="btn btn-success pull-right">Editar</button>
+                        <button type="reset" class="btn btn-default pull-left">Reset</button>
+                        <button type="submit" class="btn btn-success pull-right">Crear</button>
                     </div><!-- /.box-footer -->
                     {!! Form::close() !!}
                 </div><!-- /.box -->
@@ -72,7 +66,7 @@
         <!-- Main row -->
         <div class="row">
             <section class="col-lg-1 col-lg-offset-5">
-                <a class="btn btn-small btn-default" href="{{ URL::to('languages') }}">Volver</a>
+                <a class="btn btn-small btn-default" href="{{ URL::to('private/languages') }}">Volver</a>
             </section><!-- right col -->
         </div><!-- /.row (main row) -->
     </section><!-- /.content -->

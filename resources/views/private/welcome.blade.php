@@ -1,4 +1,4 @@
-@extends('master')
+@extends('private.master')
 
 @section('content')
 <section class="content container-fluid">
