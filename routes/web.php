@@ -14,7 +14,7 @@
 //Rutas de la web interna
 //Route::resource('clubs', 'ClubController');
 //Route::resource('languages', 'LanguageController');
-
+Route::get('/', 'HomeController@welcome'); 
 //Rutas de la parte privada
 Route::group(['prefix' => 'private'], function()
 {
