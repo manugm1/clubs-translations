@@ -77,7 +77,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <a href="{{URL::to('/')}}" class="btn btn-default btn-flat">Volver a portada</a>
                 </div>
                 <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">Salir</a>
+                  <a class="btn btn-small btn-default btn-flat" onclick="event.preventDefault(); document.getElementById('frm-logout').submit();">Salir</a>
+                  <form id="frm-logout" action="{{URL::route('logout') }}" method="POST" style="display: none;">
+                      {{ csrf_field() }}
+                  </form>
                 </div>
               </li>
             </ul>

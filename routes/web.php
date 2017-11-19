@@ -27,4 +27,4 @@ Route::group(['middleware'=> 'auth', 'prefix' => 'private'], function()
     Route::resource('languages', 'LanguageController');
 });
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
