@@ -8,7 +8,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="csrf-token" content="{{ csrf_token() }}">
-  <title>Prueba | @section('pagetitle') Portada @show</title>
+  <title>Prueba | @section('pagetitle') {{trans('private.home')}} @show</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   {!! Html::style('assets/bower_components/bootstrap/dist/css/bootstrap.min.css') !!}
@@ -68,16 +68,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   {{Auth::user()->name}}
                   <br>
                   {{Auth::user()->email}}
-                  <small>Miembro desde {{date("d-m-Y", strtotime(Auth::user()->memberSince()))}}</small>
+                  <small>{{trans('private.member-since')}} {{date("d-m-Y", strtotime(Auth::user()->memberSince()))}}</small>
                 </p>
               </li>
               <!-- Menu Footer-->
               <li class="user-footer">
                <div class="pull-left">
-                  <a href="{{URL::to('/')}}" class="btn btn-default btn-flat">Volver a portada</a>
+                  <a href="{{URL::to('/')}}" class="btn btn-default btn-flat">{{trans('private.return-home')}}</a>
                 </div>
                 <div class="pull-right">
-                  <a class="btn btn-small btn-default btn-flat" onclick="event.preventDefault(); document.getElementById('frm-logout').submit();">Salir</a>
+                  <a class="btn btn-small btn-default btn-flat" onclick="event.preventDefault(); document.getElementById('frm-logout').submit();">{{trans('private.out')}}</a>
                   <form id="frm-logout" action="{{URL::route('logout') }}" method="POST" style="display: none;">
                       {{ csrf_field() }}
                   </form>
@@ -99,12 +99,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Portada
-        <small>Página principal</small>
+        {{trans('private.home')}}
+        <small>{{trans('private.home-subtitle')}}</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Portada</a></li>
-        <li class="active">aquí</li>
+        <li><a href="#"><i class="fa fa-dashboard"></i> {{trans('private.home')}}</a></li>
+        <li class="active">{{trans('private.here')}}</li>
       </ol>
     </section>
     @show
@@ -126,7 +126,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <footer class="main-footer">
     <!-- To the right -->
     <div class="pull-right hidden-xs">
-      Prueba Laravel 5.5 (PHP7) + Bootstrap
+      Prueba Laravel 5.5 (PHP7) + Bootstrap {{App::getLocale()}}
     </div>
     <!-- Default to the left -->
     <strong>Prueba - <?=date('Y')?></strong>

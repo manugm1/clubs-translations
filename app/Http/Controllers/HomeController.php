@@ -17,4 +17,8 @@ class HomeController extends Controller
     {
         return view('welcome')->with('var', Club::all());
     }
+
+    public function indexPrivate(){
+        return view('private.welcome');
+    }
 }

@@ -20,9 +20,7 @@ Auth::routes();
 //Rutas de la parte privada
 Route::group(['middleware'=> 'auth', 'prefix' => 'private'], function()
 {
-    Route::get('/', function () {
-        return view('private.welcome');
-    });
+    Route::get('/', 'HomeController@indexPrivate');
     Route::resource('clubs', 'ClubController');
     Route::resource('languages', 'LanguageController');
 });

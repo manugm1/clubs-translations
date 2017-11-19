@@ -1,6 +1,6 @@
 @extends('private.master')
 
-@section('pagetitle', 'Editar Idioma {{$var->id}}')
+@section('pagetitle', trans('private.language-edit')." ".$var->id)
 
 @section('headercontent')
 <style>
@@ -11,12 +11,12 @@
 <!-- Content Header (Page header) -->
 <section class="content-header">
     <h1>
-    Idiomas
-    <small>Editar un idioma</small>
+    {{trans('private.languages')}}
+    <small>{{trans('private.language-edit')}}</small>
     </h1>
     <ol class="breadcrumb">
-    <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
-    <li class="active">Editar un idioma</li>
+    <li><a href="#"><i class="fa fa-dashboard"></i> {{trans('private.welcome')}}</a></li>
+    <li class="active">{{trans('private.language-edit')}}</li>
     </ol>
 </section>
 @stop
@@ -37,7 +37,7 @@
             @endif
                 <div class="box box-success">
                     <div class="box-header">
-                        <h3 class="box-title">Editar idioma <strong>{{$var->name}}</strong></h3>
+                        <h3 class="box-title">{{trans('private.language-edit')}} <strong>{{$var->name}}</strong></h3>
                     </div><!-- /.box-header -->
                     <!-- form start -->
                     {!! Form::open(['route' => ['languages.update', $var->id], 'method' => 'PUT', 'class' => 'form-horizontal']) !!}
@@ -49,21 +49,21 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="titulo" class="col-sm-3 control-label">Nombre</label>
+                            <label for="titulo" class="col-sm-3 control-label">{{trans('private.language-name')}}</label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" name="name" id="name" placeholder="Nombre" value="{{$var->name}}">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="autor" class="col-sm-3 control-label">Locale</label>
+                            <label for="autor" class="col-sm-3 control-label">{{trans('private.language-locale')}}</label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" name="locale" id="locale" placeholder="Locale" value="{{$var->locale}}">
                             </div>
                         </div>
                     </div><!-- /.box-body -->
                     <div class="box-footer">
-                        <button type="reset" class="btn btn-default">Reset</button>
-                        <button type="submit" class="btn btn-success pull-right">Editar</button>
+                        <button type="reset" class="btn btn-default">{{trans('private.reset')}}</button>
+                        <button type="submit" class="btn btn-success pull-right">{{trans('private.edit')}}</button>
                     </div><!-- /.box-footer -->
                     {!! Form::close() !!}
                 </div><!-- /.box -->
@@ -72,7 +72,7 @@
         <!-- Main row -->
         <div class="row">
             <section class="col-lg-1 col-lg-offset-5">
-                <a class="btn btn-small btn-default" href="{{ URL::to('private/languages') }}">Volver</a>
+                <a class="btn btn-small btn-default" href="{{ URL::to('private/languages') }}">{{trans('private.return')}}</a>
             </section><!-- right col -->
         </div><!-- /.row (main row) -->
     </section><!-- /.content -->

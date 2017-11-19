@@ -17,7 +17,7 @@ $(document).ready(function() {
     <div class="row" class="col-xs-12">
         <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Todos los clubs</h3>
+              <h3 class="box-title">{{trans('public.total-clubs')}}</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -27,6 +27,7 @@ $(document).ready(function() {
                         <th>ID</th>
                         <th>Club</th>
                         <th>Manager</th>
+                        <th>{{trans('public.club-description')}}</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -35,6 +36,7 @@ $(document).ready(function() {
                             <td>{{ $valor->id }}</td>
                             <td>{{ $valor->name }}</td>
                             <td>{{ $valor->manager }}</td>
+                            <td>{{ $valor->translation(\App::getLocale())->first()->description ?? ""}}</td>
                         </tr>
                     @endforeach
                     </tbody>
@@ -43,6 +45,7 @@ $(document).ready(function() {
                         <th>ID</th>
                         <th>Club</th>
                         <th>Manager</th>
+                        <th>{{trans('public.club-description')}}</th>
                     </tr>
                     </tfoot>
                 </table>

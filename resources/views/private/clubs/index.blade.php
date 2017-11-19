@@ -22,7 +22,7 @@
     </script>
  @stop
 
-@section('pagetitle', 'Ver todos los clubs')
+@section('pagetitle', trans("private.club-see"))
 
 @section('headercontent')
 <style>
@@ -33,12 +33,12 @@
 <!-- Content Header (Page header) -->
 <section class="content-header">
     <h1>
-    Clubs
-    <small>Todos los clubs</small>
+    {{trans('private.clubs')}}
+    <small>{{trans('private.clubs-subtitle')}}</small>
     </h1>
     <ol class="breadcrumb">
-    <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
-    <li class="active">Todos los clubs</li>
+    <li><a href="#"><i class="fa fa-dashboard"></i> {{trans('private.welcome')}}</a></li>
+    <li class="active">{{trans('private.clubs-subtitle')}}</li>
     </ol>
 </section>
 @stop
@@ -57,22 +57,22 @@
                 @endif
                 <div class="row">
                     <section class="col-lg-5">
-                        <a style="margin-bottom: 10px;" class="btn btn-small btn-success" href="{{ URL::to('private/clubs/create') }}">Crear</a>
+                        <a style="margin-bottom: 10px;" class="btn btn-small btn-success" href="{{ URL::to('private/clubs/create') }}">{{trans('private.create')}}</a>
                     </section><!-- right col -->
                 </div><!-- /.row (main row) -->
                 <div class="box">
                     <div class="box-header">
-                        <h3 class="box-title">Clubs</h3>
+                        <h3 class="box-title">{{trans('private.clubs')}}</h3>
                     </div><!-- /.box-header -->
                     <div class="box-body">
                         <table id="tabla" class="table table-bordered table-striped">
                             <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>Club</th>
-                                <th>Manager</th>
-                                <th>Descripción</th>
-                                <th>Edición</th>
+                                <th>{{trans('private.club-name')}}</th>
+                                <th>{{trans('private.club-manager')}}</th>
+                                <th>{{trans('private.club-description')}}</th>
+                                <th>{{trans('private.edition')}}</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -83,8 +83,8 @@
                                     <td>{{ $valor->manager }}</td>
                                     <td>{{ $valor->translation(\App::getLocale())->first()->description ?? ""}}</td>
                                     <td>
-                                        <a class="btn btn-small btn-warning" href="{{ URL::to('private/clubs/' . $valor->id . '/edit') }}">Editar</a>
-                                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-default-{{$valor->id}}">Eliminar</button>
+                                        <a class="btn btn-small btn-warning" href="{{ URL::to('private/clubs/' . $valor->id . '/edit') }}">{{trans('private.edit')}}</a>
+                                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-default-{{$valor->id}}">{{trans('private.delete')}}</button>
                                     </td>
                                 </tr>
                                 <div class="modal fade" id="modal-default-{{$valor->id}}" style="display: none;">
@@ -93,14 +93,14 @@
                                             <div class="modal-header">
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">×</span></button>
-                                                <h4 class="modal-title">Eliminar club</h4>
+                                                <h4 class="modal-title">{{trans('private.club-delete')}}</h4>
                                             </div>
                                             <div class="modal-body">
-                                                <p>¿Está seguro de querer borrar el club <strong>{{$valor->id."-".$valor->name}}</strong>?</p>
+                                                <p>{{trans('private.club-sure-delete')}} <strong>{{$valor->id."-".$valor->name}}</strong>?</p>
                                             </div>
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cerrar</button>
-                                                <a class="btn btn-small btn-danger" onclick="return borrar('{{URL::to('private/clubs/'.$valor->id)}}')">Eliminar</a>
+                                                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">{{trans('private.close')}}</button>
+                                                <a class="btn btn-small btn-danger" onclick="return borrar('{{URL::to('private/clubs/'.$valor->id)}}')">{{trans('private.delete')}}</a>
                                             </div>
                                         </div>
                                         <!-- /.modal-content -->
@@ -112,10 +112,10 @@
                             <tfoot>
                             <tr>
                                 <th>ID</th>
-                                <th>Club</th>
-                                <th>Manager</th>
-                                <th>Descripción</th>
-                                <th>Edición</th>
+                                <th>{{trans('private.club-name')}}</th>
+                                <th>{{trans('private.club-manager')}}</th>
+                                <th>{{trans('private.club-description')}}</th>
+                                <th>{{trans('private.edition')}}</th>
                             </tr>
                             </tfoot>
                         </table>

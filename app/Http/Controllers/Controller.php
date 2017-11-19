@@ -19,7 +19,7 @@ class Controller extends BaseController
         //El locale por defecto es inglés
         if(Session::has('locale'))
         {
-            Config::set('app.locale', Session::get('locale', App::getLocale()));
+            Config::set('app.locale', Session::get('locale', 'en'));
         }
         //Si no, sacamos el del navegador
         else
@@ -29,7 +29,7 @@ class Controller extends BaseController
     }
 
     public function getBrowserLocale(){
-        $websiteLanguages = array_map('strtoupper', ['aa', 'es']);//array_map('strtoupper', Language::all()->pluck('locale')->toArray());
+        $websiteLanguages = array_map('strtoupper', Language::all()->pluck('locale')->toArray());
         //$websiteLanguages = array_map('strtoupper', ['en', 'esa', 'zh']);
         // Parse the Accept-Language according to:
         // http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.4

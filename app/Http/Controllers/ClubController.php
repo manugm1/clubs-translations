@@ -53,7 +53,7 @@ class ClubController extends Controller
         //Comprobamos reglas
         if ($validator->fails()) { //Si falla
             Session::flash('message', "Hay algún error en los datos introducidos.");
-            return view('private.clubs.create')->with("errors", $validator->errors());
+            return view('private.clubs.create')->with("errors", $validator->errors())->with('var', Language::all());
         } else {
             // Si no, guardamos el objeto en la base de datos
             $objeto = new Club();
