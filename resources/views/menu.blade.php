@@ -11,8 +11,13 @@
             <ul class="nav navbar-nav">
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
-                <li><a href="" id="login-form-link">Login</a></li>
-                <li><a href="" id="login-form-link">Registro</a></li>
+                @if (Auth::check())
+                <li><a href="{{URL::to('private')}}" id="login-form-link">Entrar a privada</a></li>
+                <li><a href="{{URL::to('logout')}}" id="login-form-link">Salir</a></li>
+                @else
+                <li><a href="{{URL::to('login')}}" id="login-form-link">Login</a></li>
+                <li><a href="{{URL::to('register')}}" id="login-form-link">Registro</a></li>
+                @endif
             </ul>
         </div>
     </nav>

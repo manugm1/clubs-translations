@@ -58,24 +58,26 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <li class="dropdown user user-menu">
             <!-- Menu Toggle Button -->
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <!-- The user image in the navbar-->
-              {!! Html::image('assets/dist/img/user2-160x160.jpg', 'User Image', ['class' => 'user-image']) !!}
               <!-- hidden-xs hides the username on small devices so only the image appears. -->
-              <span class="hidden-xs">Alexander Pierce</span>
+              <span class="hidden-xs"> {{Auth::user()->name}}</span>
             </a>
             <ul class="dropdown-menu">
               <!-- The user image in the menu -->
               <li class="user-header">
-                {!! Html::image('assets/dist/img/user2-160x160.jpg', 'User Image', ['class' => 'user-image']) !!}
                 <p>
-                  Alexander Pierce - Web Developer
-                  <small>Member since Nov. 2012</small>
+                  {{Auth::user()->name}}
+                  <br>
+                  {{Auth::user()->email}}
+                  <small>Miembro desde {{date("d-m-Y", strtotime(Auth::user()->memberSince()))}}</small>
                 </p>
               </li>
               <!-- Menu Footer-->
               <li class="user-footer">
+               <div class="pull-left">
+                  <a href="{{URL::to('/')}}" class="btn btn-default btn-flat">Volver a portada</a>
+                </div>
                 <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                  <a href="#" class="btn btn-default btn-flat">Salir</a>
                 </div>
               </li>
             </ul>

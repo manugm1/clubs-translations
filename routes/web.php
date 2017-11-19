@@ -10,13 +10,15 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+//Rutas de la web pública
+Route::get('/', 'HomeController@index'); 
+/*
+ * Rutas de login
+ */
+Auth::routes();
 
-//Rutas de la web interna
-//Route::resource('clubs', 'ClubController');
-//Route::resource('languages', 'LanguageController');
-Route::get('/', 'HomeController@welcome'); 
 //Rutas de la parte privada
-Route::group(['prefix' => 'private'], function()
+Route::group(['middleware'=> 'auth', 'prefix' => 'private'], function()
 {
     Route::get('/', function () {
         return view('private.welcome');
@@ -24,3 +26,5 @@ Route::group(['prefix' => 'private'], function()
     Route::resource('clubs', 'ClubController');
     Route::resource('languages', 'LanguageController');
 });
+
+Route::get('/home', 'HomeController@index')->name('home');

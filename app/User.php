@@ -26,4 +26,11 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+    * Obtenemos de manera formateada cuándo se registró el usuario
+    */
+    public function memberSince(){
+        return date("d-m-Y", strtotime($this->created_at));
+    }
 }
