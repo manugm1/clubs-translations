@@ -54,6 +54,14 @@
                                 <input type="text" class="form-control" name="manager" id="manager" placeholder="Manager">
                             </div>
                         </div>
+                        @foreach($var as $value)
+                        <div class="form-group">
+                            <label for="autor" class="col-sm-3 control-label">Descripción {{$value->locale}}</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" name="description[{{$value->id}}]" id="description-{{$value->id}}" placeholder="Descripción {{$value->locale}}">
+                            </div>
+                        </div>
+                        @endforeach
                     </div><!-- /.box-body -->
                     <div class="box-footer">
                         <button type="reset" class="btn btn-default pull-left">Reset</button>

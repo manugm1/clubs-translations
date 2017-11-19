@@ -8,6 +8,9 @@ use Illuminate\Support\Facades\Input;
 
 use Redirect, Session;
 use App\Club;
+use App\Language;
+use App\ClubTranslation;
+
 
 class ClubController extends Controller
 {
@@ -28,7 +31,7 @@ class ClubController extends Controller
      */
     public function create()
     {
-        return view('private.clubs.create');
+        return view('private.clubs.create')->with('var', Language::all());
     }
 
     /**
@@ -58,6 +61,14 @@ class ClubController extends Controller
             $objeto->manager = Input::post('manager');
             $objeto->save();
 
+            //Cuando se guarda un objeto Club, aparece el evento creado Support\Translateable para
+            //crear registros ClubTranslation, tantos como idiomas disponibles
+            //Se recorren las descripciones indicadas en el formulario
+            foreach(Input::post('description') as $key => $value){
+                $lang = Language::find($key);
+                $objeto->translation($lang->locale)->first()->update(['description' => $value ?? "", 'language_id' => $lang->id]);
+            }
+
             //Redireccionamos a vista listado
             Session::flash('message', 'Club creado correctamente');
             return Redirect::to('private/clubs');
@@ -85,7 +96,7 @@ class ClubController extends Controller
     {
         //Objeto correspondiente
         $club = Club::find($id);
-        return view('private.clubs.edit')->with('club', $club);
+        return view('private.clubs.edit')->with('club', $club)->with('var', Language::all());
     }
 
     /**
@@ -119,6 +130,14 @@ class ClubController extends Controller
             $objeto->name = Input::post('name');
             $objeto->manager = Input::post('manager');
             $objeto->save();
+
+            //Cuando se guarda un objeto Club, aparece el evento creado Support\Translateable para
+            //crear registros ClubTranslation, tantos como idiomas disponibles
+            //Se recorren las descripciones indicadas en el formulario
+            foreach(Input::post('description') as $key => $value){
+                $lang = Language::find($key);
+                $objeto->translation($lang->locale)->first()->update(['description' => $value ?? "", 'language_id' => $lang->id]);
+            }
 
             //Redireccionamos a vista listado
             Session::flash('message', 'Club editado correctamente');

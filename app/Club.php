@@ -25,7 +25,7 @@ class Club extends Model
             $language = Language::where('locale', App::getLocale())->first();
         else
             $language = Language::where('locale', $language)->first();
-        
-        return $this->hasMany('App\ClubTranslation')->where('language_id', $language->id);
+            
+        return $this->hasMany('App\ClubTranslation')->where('language_id', ($language)? $language->id : 0);
     }
 }

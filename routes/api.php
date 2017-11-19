@@ -26,4 +26,5 @@ Route::get('pruebas', function(){
     //$club->translation('en')->first()->descripcion = "";
     //$club->translation()->first()->update([]);
     //return $club;
+   return App::getLocale();
 });

@@ -71,6 +71,7 @@
                                 <th>ID</th>
                                 <th>Club</th>
                                 <th>Manager</th>
+                                <th>Descripción</th>
                                 <th>Edición</th>
                             </tr>
                             </thead>
@@ -80,9 +81,10 @@
                                     <td>{{ $valor->id }}</td>
                                     <td>{{ $valor->name }}</td>
                                     <td>{{ $valor->manager }}</td>
+                                    <td>{{ $valor->translation(\App::getLocale())->first()->description ?? ""}}</td>
                                     <td>
-                                    <a class="btn btn-small btn-warning" href="{{ URL::to('private/clubs/' . $valor->id . '/edit') }}">Editar</a>
-                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-default-{{$valor->id}}">Eliminar</button>
+                                        <a class="btn btn-small btn-warning" href="{{ URL::to('private/clubs/' . $valor->id . '/edit') }}">Editar</a>
+                                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-default-{{$valor->id}}">Eliminar</button>
                                     </td>
                                 </tr>
                                 <div class="modal fade" id="modal-default-{{$valor->id}}" style="display: none;">
@@ -112,6 +114,7 @@
                                 <th>ID</th>
                                 <th>Club</th>
                                 <th>Manager</th>
+                                <th>Descripción</th>
                                 <th>Edición</th>
                             </tr>
                             </tfoot>
